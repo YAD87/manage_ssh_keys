@@ -1,0 +1,15 @@
+---
+
+- hosts: razrab
+  become: yes
+  user: dev
+
+  tasks:
+
+    - name: Set authorized key took from file
+      authorized_key:
+        user: dev
+        state: absent
+        key: "{{ lookup('file', '/home/user/mssh/vov.pub') }}"
+ 
+  
